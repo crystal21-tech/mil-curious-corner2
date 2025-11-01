@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Of Gears and Waves | Curious Corner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { scroll-behavior: smooth; }
+    body { 
+      margin: 0; 
+      font-family: 'Quicksand', sans-serif; 
+      background: linear-gradient(135deg, #005f7f 0%, #0088aa 50%, #1e6b3a 100%); 
+      color: #ffffff; /* White text for body */
+      background-attachment: fixed;
+      position: relative;
+    }
+    body::before { 
+      content: ''; 
+      position: fixed; 
+      top: 0; left: 0; right: 0; bottom: 0; 
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23909090" stroke-width="1" opacity="0.1"/><path d="M50 10 L60 40 L90 40 L68 58 L78 88 L50 70 L22 88 L32 58 L10 40 L40 40 Z" fill="%23909090" opacity="0.05"/></svg>') repeat; 
+      z-index: -1; 
+    }
+    nav {
+      position: fixed; top: 0; width: 100%; background: rgba(0, 95, 127, 0.95);
+      display: flex; justify-content: center; gap: 1rem; padding: 1rem 0; z-index: 1000;
+      backdrop-filter: blur(6px); border-bottom: 2px solid #909090;
+      box-shadow: 0 2px 10px rgba(144, 144, 144, 0.3);
+    }
+    nav a { color: #ffffff; text-decoration: none; font-weight: 500; transition: color 0.3s; font-family: 'Orbitron', sans-serif; }
+    nav a:hover { color: #ffd700; text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+
+    header { 
+      background: linear-gradient(135deg, #0088aa 0%, #005f7f 50%, #1e6b3a 100%); 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 8rem 1rem 4rem; 
+      position: relative; 
+      border-bottom: 3px solid #909090;
+    }
+    header::before { 
+      content: ''; 
+      position: absolute; 
+      top: 0; left: 0; right: 0; bottom: 0; 
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,25 50,50 T100,50 V100 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') repeat-x; 
+      z-index: -1; 
+    }
+    header h1 { 
+      margin: 0; 
+      font-size: 3.5rem; 
+      font-family: 'Orbitron', sans-serif; 
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 0 0 10px rgba(144, 144, 144, 0.5); 
+      letter-spacing: 2px;
+    }
+    header p { 
+      font-size: 1.4rem; 
+      margin-top: 0.5rem; 
+      opacity: 0.9; 
+      font-style: italic;
+    }
+
+    main { max-width: 1000px; margin: 2rem auto; padding: 1rem; }
+    .article-content { 
+      background: rgba(0, 47, 63, 0.9); /* Darker background for white text visibility */
+      border-radius: 10px; 
+      padding: 3rem; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+      line-height: 1.8; 
+      border: 2px solid #909090; 
+      position: relative;
+      color: #ffffff; /* White text */
+    }
+    .article-content::before { 
+      content: ''; 
+      position: absolute; 
+      top: -10px; left: -10px; right: -10px; bottom: -10px; 
+      background: linear-gradient(45deg, #005f7f, #0088aa); 
+      z-index: -1; 
+      border-radius: 10px;
+    }
+    .article-content h2 { 
+      color: #ffffff; 
+      border-left: 5px solid #1e6b3a; 
+      padding-left: 10px; 
+      margin-bottom: 1rem; 
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+      font-family: 'Orbitron', sans-serif;
+    }
+    .article-content .date, .article-content .author { 
+      color: #ffffff; 
+      font-style: italic; 
+      text-align: center; 
+      margin-bottom: 2rem;
+    }
+    .article-content p { 
+      margin-bottom: 1.5rem; 
+      text-indent: 20px; 
+      font-size: 1.1rem;
+      color: #ffffff; /* White text */
+    }
+    .quote { 
+      font-style: italic; 
+      color: #ffffff; 
+      border-left: 3px solid #909090; 
+      padding-left: 15px; 
+      margin: 2rem 0;
+    }
+    .back-link { 
+      display: inline-block; 
+      margin-top: 3rem; 
+      color: #ffffff; 
+      text-decoration: none; 
+      font-weight: 600; 
+      transition: color 0.3s; 
+      font-family: 'Orbitron', sans-serif;
+    }
+    .back-link:hover { 
+      color: #ffd700; 
+      text-decoration: underline; 
+      text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+
+    footer { 
+      background-color: #005f7f; 
+      color: #ffffff; 
+      text-align: center; 
+      padding: 1rem; 
+      font-size: 0.9rem; 
+      border-top: 2px solid #909090; 
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    @media (max-width: 600px) { 
+      nav { flex-wrap: wrap; gap: 1rem; } 
+      header h1 { font-size: 2.5rem; } 
+      .article-content { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="INDEXX.html">Home</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="index.html#experts">Experts</a>
+    <a href="peer-eval.html">Peer Eval</a>
+    <a href="jamill.html">Articles</a>
+    <a href="INDEXX.html">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Of Gears and Waves</h1>
+    <p>Tracing the journey of how small wonders built a big dream</p>
+  </header>
+
+  <main>
+    <div class="article-content">
+      <p class="date">October 29, 2025</p>
+      <p class="author">by Jamill</p>
+      <p>Ever since I was young, I have always been fascinated by how things work. I remember, I used to spend hours opening our electric fan just to see what's inside. I did not always know what I was doing, but that curiosity kept me wondering how things actually worked. Even if I could not fix anything back then, the feeling of discovering something new was exciting to me.</p>
+      <p>One of the moments that truly changed how I see things when I first rode a ship at six years old. That was my first time being on the ocean, and I can still remember how amazed I was. The ship was so big and strong, moving smoothly through the waves. I really enjoyed watching all the fishes swim beside the ship, and I could not stop thinking about how something that heavy could float and travel across the sea. That experience stayed with me—it made me curious about what was happening below the deck, how the engines worked, and how people built something that powerful and safe.</p> 
+      <div class="quote">“That experience stayed with me—it made me curious about what was happening below the deck, how the engines worked.”</div>
+      <p>Since then, my curiosity about machines and my fascination with the ocean. That was the time I realized that what I really want to become is a marine engineer—someone who understands, builds, and maintains the systems that make ships and vessels move.</p>
+      <p>As I grew older, my interest became stronger. I started watching videos of people fixing engines, building machines, and working on ships. I love observing how every part connects and how engineers make everything function perfectly. Sometimes, I also watch my uncle while he is working on repairs that involve machines. I enjoy seeing how he handles the tools and solves mechanical problems. I may not fully understand everything he does, but it inspires me to learn. It makes me realize that with enough patience and curiosity, I can also develop those skills one day.</p>
+      <p>Honestly, I am not good at fixing things yet. Most of the time, I just watch and try to understand how it is done. But even if I am not skilled yet, I am always willing to learn. That keeps me motivated and able to work on real ships and every system that keeps them running. Whenever something breaks, I always get that urge to check it out first before anyone else. I may not know exactly how to repair it, but I enjoy figuring out what went wrong. Every small thing I discover feels like a step toward my dream.</p>
+      <p>My curiosity helps me think deeper about how things function, and my love for the ocean gives me the passion to pursue this path. I know that becoming a marine engineer will not be easy, but my willingness to learn and explore keeps me determined. I want to understand how ships work from the inside, and maybe one day, I will be part of the team that designs or maintains them.</p>
+      <a href="INDEXX.html" class="back-link">← Back to Home</a>
+      <a href="part2ver2.html" class="back-link">Read Next →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Curious Corner | Crafted with curiosity and passion.</p>
+  </footer>
+
+  <script>
+    // Optional: Add scroll reveal if needed, but kept simple for the article page
+    const article = document.querySelector('.article-content');
+    const revealOnLoad = () => {
+      article.style.opacity = '0';
+      article.style.transform = 'translateY(40px)';
+      setTimeout(() => {
+        article.style.transition = 'all 0.8s ease-out';
+        article.style.opacity = '1';
+        article.style.transform = 'translateY(0)';
+      }, 100);
+    };
+    window.addEventListener('load', revealOnLoad);
+  </script>
+</body>
+</html>

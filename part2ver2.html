@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kindness In The Dark | Curious Corner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { scroll-behavior: smooth; }
+    body { 
+      margin: 0; 
+      font-family: 'Crimson Text', serif; 
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2c1810 100%); 
+      color: #e0e0e0; 
+      background-attachment: fixed;
+    }
+    nav {
+      position: fixed; top: 0; width: 100%; background: rgba(13, 13, 13, 0.95);
+      display: flex; justify-content: center; gap: 1rem; padding: 1rem 0; z-index: 1000;
+      backdrop-filter: blur(6px); border-bottom: 2px solid #8e44ad;
+      box-shadow: 0 2px 10px rgba(142, 68, 173, 0.3);
+    }
+    nav a { color: #bbb; text-decoration: none; font-weight: 500; transition: color 0.3s; font-family: 'Cinzel', serif; }
+    nav a:hover { color: #e74c3c; text-shadow: 0 0 5px rgba(231, 76, 60, 0.5); }
+
+    header { 
+      background: linear-gradient(135deg, #2c3e50 0%, #8e44ad 50%, #1a1a1a 100%); 
+      color: #f8f8f8; 
+      text-align: center; 
+      padding: 8rem 1rem 4rem; 
+      position: relative; 
+      border-bottom: 3px solid #e74c3c;
+    }
+    header::before { 
+      content: ''; 
+      position: absolute; 
+      top: 0; left: 0; right: 0; bottom: 0; 
+      background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=') repeat; 
+      opacity: 0.1; 
+      z-index: -1; 
+    }
+    header h1 { 
+      margin: 0; 
+      font-size: 3.5rem; 
+      font-family: 'Cinzel', serif; 
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 0 0 10px rgba(231, 76, 60, 0.5); 
+      letter-spacing: 2px;
+    }
+    header p { 
+      font-size: 1.4rem; 
+      margin-top: 0.5rem; 
+      opacity: 0.9; 
+      font-style: italic;
+    }
+
+    main { max-width: 1000px; margin: 2rem auto; padding: 1rem; }
+    .image-container { 
+      display: flex; 
+      gap: 30px; 
+      justify-content: center; 
+      margin: 3rem 0; 
+      position: relative;
+    }
+    .image-container img { 
+      max-width: 40%; 
+      height: auto; 
+      border-radius: 0; 
+      border: 5px solid #8e44ad; 
+      box-shadow: 0 8px 16px rgba(0,0,0,0.7), 0 0 20px rgba(142, 68, 173, 0.3); 
+      filter: sepia(20%) contrast(1.2); 
+      transition: transform 0.3s, box-shadow 0.3s; 
+    }
+    .image-container img:hover { 
+      transform: scale(1.05); 
+      box-shadow: 0 12px 24px rgba(0,0,0,0.9), 0 0 30px rgba(231, 76, 60, 0.5); 
+    }
+    .divider { 
+      height: 2px; 
+      background: linear-gradient(90deg, transparent, #e74c3c, transparent); 
+      margin: 2rem 0; 
+      position: relative;
+    }
+    .divider::before { 
+      content: '†'; 
+      position: absolute; 
+      left: 50%; 
+      top: -10px; 
+      transform: translateX(-50%); 
+      color: #e74c3c; 
+      font-size: 1.5rem; 
+      font-family: 'Cinzel', serif;
+    }
+    .article-content { 
+      background: rgba(26, 26, 26, 0.9); 
+      border-radius: 0; 
+      padding: 3rem; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+      line-height: 1.8; 
+      border: 2px solid #8e44ad; 
+      position: relative;
+    }
+    .article-content::before { 
+      content: ''; 
+      position: absolute; 
+      top: -10px; left: -10px; right: -10px; bottom: -10px; 
+      background: linear-gradient(45deg, #8e44ad, #e74c3c); 
+      z-index: -1; 
+      border-radius: 0;
+    }
+    .article-content h2 { 
+      color: #f8f8f8; 
+      border-left: 0; 
+      padding-left: 0; 
+      margin-bottom: 1rem; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+      font-family: 'Cinzel', serif; 
+      text-align: center; 
+      border-bottom: 2px solid #e74c3c; 
+      padding-bottom: 0.5rem;
+    }
+    .article-content .date, .article-content .author { 
+      color: #bbb; 
+      font-style: italic; 
+      text-align: center; 
+      margin-bottom: 2rem;
+    }
+    .article-content p { 
+      margin-bottom: 1.5rem; 
+      text-indent: 20px; 
+      font-size: 1.1rem;
+    }
+    .quote { 
+      font-style: italic; 
+      color: #e74c3c; 
+      border-left: 3px solid #8e44ad; 
+      padding-left: 15px; 
+      margin: 2rem 0;
+    }
+    .back-link { 
+      display: inline-block; 
+      margin-top: 3rem; 
+      color: #8e44ad; 
+      text-decoration: none; 
+      font-weight: 600; 
+      transition: color 0.3s; 
+      font-family: 'Cinzel', serif; 
+      text-align: center; 
+      width: 100%;
+    }
+    .back-link:hover { 
+      color: #e74c3c; 
+      text-decoration: underline; 
+      text-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+    }
+
+    footer { 
+      background-color: #0d0d0d; 
+      color: #888; 
+      text-align: center; 
+      padding: 1rem; 
+      font-size: 0.9rem; 
+      border-top: 2px solid #8e44ad; 
+      font-family: 'Cinzel', serif;
+    }
+
+    @media (max-width: 600px) { 
+      nav { flex-wrap: wrap; gap: 1rem; } 
+      header h1 { font-size: 2.5rem; } 
+      .image-container { flex-direction: column; gap: 20px; } 
+      .image-container img { max-width: 100%; } 
+      .article-content { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="INDEXX.html">Home</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="INDEXX.html">Experts</a>
+    <a href="peer-eval.html">Peer Eval</a>
+    <a href="part2ver2.html">Articles</a>
+    <a href="INDEXX.html">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Kindness In The Dark</h1>
+    <p>Where shadows speak softly and fear teaches you to feel.</p>
+  </header>
+
+  <div class="image-container">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPenpal_%2528novel%2529&psig=AOvVaw1ScBbbJVnhHJuo0BPiOAJG&ust=1761997306276000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKic-s2tzpADFQAAAAAdAAAAABAE" alt="Penpal book cover">
+    <img src="https://www.google.com/imgres?q=we%20have%20always%20lived%20in%20the%20castle%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fcompressed.photo.goodreads.com%2Fbooks%2F1746532708i%2F89724.jpg&imgrefurl=https%3A%2F%2Fwww.goodreads.com%2Fbook%2Fshow%2F89724.We_Have_Always_Lived_in_the_Castle&docid=Ctfvb3AsLwy7mM&tbnid=X0lHKlxrvH35dM&vet=12ahUKEwj5rdWQrs6QAxWhQ_UHHfe7AtIQM3oECBsQAA..i&w=1000&h=1500&hcb=2&ved=2ahUKEwj5rdWQrs6QAxWhQ_UHHfe7AtIQM3oECBsQAA" alt="We Have Always Lived in the Castle book cover">
+  </div>
+
+  <div class="divider"></div>
+
+  <main>
+    <div class="article-content">
+      <p class="date">October 31, 2025</p>
+      <p class="author">by Crystal</p>
+      <p>There’s something strangely comforting about fear — not the kind that makes you run, but the kind that makes you stay. That slow, creeping unease you feel when a story blurs the line between what’s real and what’s imagined. That’s what first pulled me into the world of thrillers and psychological mysteries.</p>
+      <p>One of my favorite literatures was <em>Penpal</em> by Dathan Auerbach. It wasn’t filled with monsters or ghosts, but with memories, loss, and the unsettling feeling that someone could be watching you without ever being seen. What made it terrifying wasn’t the violence; it was the familiarity — the way ordinary childhood experiences could turn sinister under a different light.</p>
+      <p>Then came Shirley Jackson’s <em>We Have Always Lived in the Castle</em>. Unlike <em>Penpal</em>, its horror wasn’t loud — it whispered. It lingered in the eerie silences between Merricat’s words, in the quiet tension of a family too strange and too secretive to ever be truly understood. Jackson’s story didn’t rely on fear of the unknown, but fear of understanding too much.</p>
+      <p>Both novels left me with a strange realization: horror doesn’t always scream. Sometimes, it hums softly in the background, wrapped in beauty and curiosity. Both authors built their worlds not around terror itself, but around the fragility of the human mind. Reading these stories made me appreciate how mystery and dread can coexist with tenderness. They reminded me that thrillers aren’t just about fear — they’re about truth. The unsettling kind that forces you to look inward.</p>
+      <p>In the end, it’s not the monsters that keep me reading. It’s the silence that follows after you close the book — when your mind starts whispering, <em>what if?</em></p>
+      
+      <a href="INDEXX.html" class="back-link">← Back to Home</a>
+    </div>
+  </main>
+
+  <div class="divider"></div>
+
+  <footer>
+    <p>© 2025 Curious Corner | Crafted with curiosity and passion.</p>
+  </footer>
+
+  <script>
+    // Optional: Add scroll reveal if needed, but kept simple for the article page
+    const article = document.querySelector('.article-content');
+    const revealOnLoad = () => {
+      article.style.opacity = '0';
+      article.style.transform = 'translateY(40px)';
+      setTimeout(() => {
+        article.style.transition = 'all 0.8s ease-out';
+        article.style.opacity = '1';
+        article.style.transform = 'translateY(0)';
+      }, 100);
+    };
+    window.addEventListener('load', revealOnLoad);
+  </script>
+</body>
+</html>

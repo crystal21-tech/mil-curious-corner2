@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peer Evaluation | Curious Corner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #fafafa; color: #333; }
+    nav {
+      position: fixed; top: 0; width: 100%; background: rgba(24, 40, 72, 0.95);
+      display: flex; justify-content: center; gap: 1rem; padding: 1rem 0; z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    nav a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #4b6cb7; }
+
+    header { background-image: linear-gradient(315deg, #4b6cb7 0%, #182848 74%); color: white; text-align: center; padding: 6rem 1rem 3rem; }
+    header h1 { margin: 0; font-size: 2.8rem; }
+    header p { font-size: 1.2rem; margin-top: 0.5rem; }
+
+    main { max-width: 1000px; margin: 2rem auto; padding: 1rem; }
+    .evaluation-form, .evaluations-list { background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 3px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+    .evaluation-form h2, .evaluations-list h2 { color: #182848; border-left: 5px solid #4b6cb7; padding-left: 10px; margin-bottom: 1rem; }
+    .evaluation-form .form-group { margin-bottom: 1rem; }
+    .evaluation-form label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    .evaluation-form input, .evaluation-form select, .evaluation-form textarea { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+    .evaluation-form button { background-color: #4b6cb7; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 5px; cursor: pointer; font-weight: 500; transition: background-color 0.3s; }
+    .evaluation-form button:hover { background-color: #182848; }
+    .evaluations-list .evaluation-item { border-bottom: 1px solid #eee; padding: 1rem 0; }
+    .evaluations-list .evaluation-item:last-child { border-bottom: none; }
+    .evaluations-list .rating { color: #4b6cb7; font-weight: 600; }
+
+    footer { background-color: #182848; color: #ccc; text-align: center; padding: 1rem; font-size: 0.9rem; }
+
+    @media (max-width: 600px) { nav { flex-wrap: wrap; gap: 1rem; } header h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="INDEXX.html">Home</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="INDEXX.html">Experts</a>
+    <a href="peer-eval.html">Peer Eval</a>
+    <a href="charcoal.html">Articles</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Peer Evaluation</h1>
+    <p>Share and rate hobbies with peers to inspire growth</p>
+  </header>
+
+  <main>
+    <div class="evaluation-form">
+      <h2>Submit Your Evaluation</h2>
+      <form id="peerForm">
+        <div class="form-group">
+          <label for="hobby">Select Hobby:</label>
+          <select id="hobby" required>
+            <option value="">Choose a hobby</option>
+            <option value="arts-design">Arts and Design</option>
+            <option value="coding-gaming">Coding and Gaming</option>
+            <option value="machinery">Machinery</option>
+            <option value="sports">Sports</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating (1-5):</label>
+          <input type="number" id="rating" min="1" max="5" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment:</label>
+          <textarea id="comment" rows="4" placeholder="Share your thoughts on how this hobby impacted your career or learning..." required></textarea>
+        </div>
+        <button type="submit">Submit Evaluation</button>
+      </form>
+    </div>
+
+    <div class="evaluations-list">
+      <h2>Recent Peer Evaluations</h2>
+      <div id="evaluationsContainer">
+        <!-- Sample evaluations (can be dynamically added via JS) -->
+        <div class="evaluation-item">
+          <strong>Arts and Design</strong> - Rating: <span class="rating">5/5</span><br>
+          <em>By: Alex Johnson</em><br>
+          <p>Drawing helped me develop creativity and attention to detail, leading to a career in graphic design. Highly recommend!</p>
+        </div>
+        <div class="evaluation-item">
+          <strong>Coding and Gaming</strong> - Rating: <span class="rating">4/5</span><br>
+          <em>By: Maria Garcia</em><br>
+          <p>Gaming taught me problem-solving. Coding projects built my skills for software engineering.</p>
+        </div>
+        <div class="evaluation-item">
+          <strong>Machinery</strong> - Rating: <span class="rating">4/5</span><br>
+          <em>By: Liam Smith</em><br>
+          <p>Building robots as a hobby sparked my interest in mechanical engineering. Fun and educational!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Curious Corner | Crafted with curiosity and passion.</p>
+  </footer>
+
+  <script>
+    // Simple JS to handle form submission (adds to the list without backend)
+    const form = document.getElementById('peerForm');
+    const container = document.getElementById('evaluationsContainer');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const hobby = document.getElementById('hobby').value;
+      const rating = document.getElementById('rating').value;
+      const name = document.getElementById('name').value;
+      const comment = document.getElementById('comment').value;
+
+      const newItem = document.createElement('div');
+      newItem.className = 'evaluation-item';
+      newItem.innerHTML = `
+        <strong>${hobby.replace('-', ' ').toUpperCase()}</strong> - Rating: <span class="rating">${rating}/5</span><br>
+        <em>By: ${name}</em><br>
+        <p>${comment}</p>
+      `;
+      container.appendChild(newItem);
+
+      // Reset form
+      form.reset();
+      alert('Evaluation submitted! (Note: This is client-side only; no data is saved.)');
+    });
+  </script>
+</body>
+</html>

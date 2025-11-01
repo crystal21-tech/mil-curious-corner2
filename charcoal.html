@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charcoal? Nope, Just My Mom's Eyebrow Pencil | Curious Corner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <style>
+    * { scroll-behavior: smooth; }
+    body { 
+      margin: 0; 
+      font-family: 'Kalam', cursive; 
+      background-color: #f5f5dc; /* Paper-like background */
+      color: #2f2f2f; 
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10 20 Q20 10 30 20 T50 20 M60 30 Q70 20 80 30 T100 30" stroke="%23d2b48c" stroke-width="1" fill="none" opacity="0.3"/><circle cx="20" cy="70" r="5" stroke="%23d2b48c" stroke-width="1" fill="none" opacity="0.2"/><path d="M40 60 L50 50 L60 60" stroke="%23d2b48c" stroke-width="1" fill="none" opacity="0.3"/></svg>'); /* Sketch doodles */
+      background-attachment: fixed;
+    }
+    nav {
+      position: fixed; top: 0; width: 100%; background: rgba(139, 69, 19, 0.9); /* Brown sketchbook cover */
+      display: flex; justify-content: center; gap: 1rem; padding: 1rem 0; z-index: 1000;
+      backdrop-filter: blur(6px); border-bottom: 2px solid #8b4513;
+      box-shadow: 0 2px 10px rgba(139, 69, 19, 0.3);
+    }
+    nav a { color: #f5f5dc; text-decoration: none; font-weight: 500; transition: color 0.3s; font-family: 'Shadows Into Light', cursive; }
+    nav a:hover { color: #daa520; text-shadow: 0 0 5px rgba(218, 165, 32, 0.5); }
+
+    header { 
+      background: linear-gradient(135deg, #d2b48c 0%, #f5f5dc 50%, #8b4513 100%); /* Sketchbook gradient */
+      color: #2f2f2f; 
+      text-align: center; 
+      padding: 6rem 1rem 3rem; 
+      position: relative; 
+      border-bottom: 3px solid #8b4513;
+    }
+    header::before { 
+      content: ''; 
+      position: absolute; 
+      top: 0; left: 0; right: 0; bottom: 0; 
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,25 50,50 T100,50 V100 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') repeat-x; 
+      z-index: -1; 
+    }
+    header h1 { 
+      margin: 0; 
+      font-size: 2.8rem; 
+      font-family: 'Shadows Into Light', cursive; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+      letter-spacing: 1px;
+    }
+    header p { 
+      font-size: 1.2rem; 
+      margin-top: 0.5rem; 
+      opacity: 0.9; 
+      font-style: italic;
+    }
+
+    main { max-width: 1000px; margin: 2rem auto; padding: 1rem; }
+    .article-content { 
+      background: rgba(255, 255, 255, 0.9); 
+      border-radius: 0; 
+      padding: 3rem; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+      line-height: 1.8; 
+      border: 3px solid #d2b48c; /* Sketch border */
+      position: relative;
+      font-family: 'Kalam', cursive;
+    }
+    .article-content::before { 
+      content: ''; 
+      position: absolute; 
+      top: -10px; left: -10px; right: -10px; bottom: -10px; 
+      background: linear-gradient(45deg, #f5f5dc, #d2b48c); 
+      z-index: -1; 
+      border-radius: 0;
+    }
+    .article-content h2 { 
+      color: #8b4513; 
+      border-left: 0; 
+      padding-left: 0; 
+      margin-bottom: 1rem; 
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
+      font-family: 'Shadows Into Light', cursive; 
+      text-align: center; 
+      border-bottom: 2px solid #d2b48c; 
+      padding-bottom: 0.5rem;
+    }
+    .article-content .date { 
+      color: #696969; 
+      font-style: italic; 
+      text-align: center; 
+      margin-bottom: 2rem;
+    }
+    .article-content p { 
+      margin-bottom: 1.5rem; 
+      text-indent: 20px; 
+      font-size: 1.1rem;
+    }
+    .article-content img { 
+      max-width: 100%; 
+      height: auto; 
+      border-radius: 0; 
+      border: 2px solid #8b4513; 
+      filter: sepia(30%) contrast(1.1); 
+      transition: filter 0.3s; 
+    }
+    .article-content img:hover { 
+      filter: sepia(0%) contrast(1.2); 
+    }
+    .quote { 
+      font-style: italic; 
+      color: #daa520; 
+      border-left: 3px solid #d2b48c; 
+      padding-left: 15px; 
+      margin: 2rem 0;
+      font-family: 'Shadows Into Light', cursive;
+    }
+    .back-link { 
+      display: inline-block; 
+      margin-top: 3rem; 
+      color: #8b4513; 
+      text-decoration: none; 
+      font-weight: 600; 
+      transition: color 0.3s; 
+      font-family: 'Shadows Into Light', cursive;
+    }
+    .back-link:hover { 
+      color: #daa520; 
+      text-decoration: underline; 
+      text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+    }
+
+    footer { 
+      background-color: #8b4513; 
+      color: #f5f5dc; 
+      text-align: center; 
+      padding: 1rem; 
+      font-size: 0.9rem; 
+      border-top: 2px solid #d2b48c; 
+      font-family: 'Shadows Into Light', cursive;
+    }
+
+    @media (max-width: 600px) { 
+      nav { flex-wrap: wrap; gap: 1rem; } 
+      header h1 { font-size: 2rem; } 
+      .article-content { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="INDEXX.html">Home</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="index.html#experts">Experts</a>
+    <a href="peer-eval.html">Peer Eval</a>
+    <a href="charcoal.html">Articles</a>
+    <a href="INDEXX.html">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Charcoal? Nope, Just My Mom's Eyebrow Pencil</h1>
+    <p>Proof that you don't need fancy tools to start making art.</p>
+  </header>
+
+  <main>
+    <div class="article-content">
+      <p class="date">October 28, 2025</p>
+      <p class="author">by Crystal</p>
+      <p>I didn't have art supplies, but I had determination — and my mom's eyebrow pencil was good enough. Little did I know, that was the start of a long love affair with art.</p>
+      
+      <h2>The Spark of Curiosity</h2>
+      <p>I first discovered my love for drawing back when I was in 6th grade. One ordinary afternoon, I stumbled upon a YouTube compilation of realism drawing tutorials. Out of curiosity, I tried following along — and to my surprise, I immediately loved the results.</p> 
+      <p>At the time, I didn’t have any fancy art materials yet. So, instead of charcoal pencils, I “borrowed” my mother’s eyebrow pencil to mimic that deep, smudgy blackness that charcoal usually creates. It was a little unorthodox, but it worked! My favorite subjects were realistic eyes and lips — something about capturing tiny details fascinated me.</p>
+      <div class="quote">“My days were filled with smudged fingertips, stacks of sketch paper, and the quiet satisfaction of finishing each piece.”</div>
+      <p>When the pandemic hit, I found even more time to practice. What started as a simple hobby became my daily creative escape. I began exploring anime-style drawings of my favorite characters before gradually returning to realism. With every sketch, I challenged myself to capture emotions and shadows more precisely.</p>
+      <p>Eventually, I built enough confidence to draw full portraits. I often used black-and-white photos from Pinterest as references, since I mainly worked with graphite and charcoal pencils. My days were filled with smudged fingertips, stacks of sketch paper, and the quiet satisfaction of finishing each piece.</p>
+      <p>I would proudly show my drawings to my brother, who became my biggest supporter — and, to be honest, my main art supply sponsor. Looking back, I realize that those small moments of curiosity and resourcefulness led me to discover something that still inspires me today.</p>
+      <img src="sample.jpg." alt="A sample drawing sketch">
+      <p>I never planned to become an "artist". I just wanted to try something new one afternoon. But that small experiment with an eyebrow pencil turned into a creative and meaningful journey that shaped who I am today.</p>
+      
+      <a href="INDEXX.html" class="back-link">← Back to Home</a>
+      <a href="jamill.html" class="back-link">Read Next →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Curious Corner | Crafted with curiosity and passion.</p>
+  </footer>
+
+  <script>
+    // Optional: Add scroll reveal if needed, but kept simple for the article page
+    const article = document.querySelector('.article-content');
+    const revealOnLoad = () => {
+      article.style.opacity = '0';
+      article.style.transform = 'translateY(40px)';
+      setTimeout(() => {
+        article.style.transition = 'all 0.8s ease-out';
+        article.style.opacity = '1';
+        article.style.transform = 'translateY(0)';
+      }, 100);
+    };
+    window.addEventListener('load', revealOnLoad);
+  </script>
+</body>
+</html>
